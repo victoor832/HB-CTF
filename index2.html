@@ -66,7 +66,7 @@
         Tu navegador no soporta el elemento de audio.
     </audio>  -->
 
-    <audio id="audioPlayer" src="techno_wave.mp3" loop></audio>
+    <audio id="audioPlayer" src="techno_wave.mp3" loop autoplay></audio>
 
 </body>
     <script>
@@ -175,6 +175,15 @@ window.addEventListener('message', function(event) {
             audioPlayer.pause();
         }
     });
+
+    // En index2.html
+document.addEventListener('DOMContentLoaded', function() {
+    var audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer) {
+        audioPlayer.play();
+    }
+});
+
 
 </script>
 </html>
