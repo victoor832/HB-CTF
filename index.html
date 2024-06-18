@@ -28,6 +28,11 @@
             z-index: 2;
         }
 
+        #playButtonContainer {
+            text-decoration: none; /* Elimina el subrayado del enlace */
+            color: inherit; /* Hereda el color del botón */
+        }
+
         #playButton {
             font-size: 20px;
             padding: 10px 20px;
@@ -37,6 +42,31 @@
             border: none;
             border-radius: 5px;
         }
+
+        #loadMore{
+  background-color:#E54D42;
+  box-shadow:0px 6px 0px #C34238;
+  color:#FFF;
+  width:490px;
+  cursor:pointer;
+  display:block;
+  text-decoration:none;
+  border-bottom:0px;
+  padding:12px 25px;
+  margin:50px auto;
+  position:relative;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 4px;
+	opacity:1;
+}
+
+#loadMore:hover{
+	opacity: 0.9;
+  top:2px;
+  box-shadow:0px 4px 0px #C34238;
+}
 
         img {
             max-width: 100%;
@@ -51,49 +81,9 @@
 </head>
 <body>
     <div id="welcomeScreen">
-        <button type="button" id="playButton">Enhorabuena, haz clic aquí para ver la 'flag'</button>
+        <a href="index2.html" id="playButtonContainer">
+            <button id="loadMore">Empieza el reto...</button>
+        </a>
     </div>
-    <script>
-        function toggleFullScreen(elem) {
-            if ((document.fullScreenElement!== undefined && document.fullScreenElement === null) || (document.msFullscreenElement!== undefined && document.msFullscreenElement === null) || (document.mozFullScreen!== undefined &&!document.mozFullScreen) || (document.webkitIsFullScreen!== undefined &&!document.webkitIsFullScreen) || (document.fullscreenElement!== undefined && document.fullscreenElement === null)) {
-                if (elem.requestFullScreen) {
-                    elem.requestFullScreen();
-                } else if (elem.mozRequestFullScreen) {
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullScreen) {
-                    elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-                } else if (elem.msRequestFullscreen) {
-                    elem.msRequestFullscreen();
-                }
-            } else {
-                if (document.cancelFullScreen) {
-                    document.cancelFullScreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitCancelFullScreen) {
-                    document.webkitCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var audioPlayer = document.getElementById('audioPlayer'); // Asegúrate de tener un elemento con id='audioPlayer' en tu HTML si planeas usarlo
-            var playButton = document.getElementById('playButton');
-            var welcomeScreen = document.getElementById('welcomeScreen');
-            var gifImage = document.querySelector('img');
-
-            playButton.addEventListener('click', function() {
-                audioPlayer.play(); // Asegúrate de que 'audioPlayer' esté definido o remuévelo si no lo usas
-                gifImage.style.display = 'block';
-                welcomeScreen.style.display = 'none';
-                toggleFullScreen(document.documentElement); // Llamada a la función para pantalla completa
-
-                // Redirecciona a index2.html
-                window.location.href = "index2.html";
-            });
-        });
-    </script>
 </body>
 </html>

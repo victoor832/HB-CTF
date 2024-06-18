@@ -22,28 +22,8 @@
         color: white;
         font-size: 20px;
         font-weight: bold;
-
     }
-    .hidden {
-        display: none;
-    }
-    /*body {
-        background-image: url('cake.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-    }*/
-    .hidden {
+   .hidden {
         display: none;
     }
     div {
@@ -53,27 +33,10 @@
         border-radius: 5px;
     }
     </style>
-    <script>
-function PlayMusic() {
-
-  var play=document.getElementById("music");
-  play.play();
-}
-
-$(document).ready(function(){
-  setTimeout(PlayMusic,3000);
-})
-
-</script>
-
 </head>
 <body>
-<audio preload = "auto" autoplay id="music" >
-
-  <source src="techno_wave.mp3" type="audio/mp3">
-</audio>
     <div id="section1">
-        <p>Cuantos integrantes hay en la liga de ciber ?  </p>
+        <p>Cuantos integrantes hay en la liga de ciber?  </p>
         <input type="text" id="answer1" />
         <button onclick="showSection2()">Next</button>
         <p id="response1" class="hidden"></p>
@@ -85,54 +48,23 @@ $(document).ready(function(){
         <p id="response2" class="hidden"></p>
     </div>
     <div id="section3" class="hidden">
-        <p>𝕰𝖓𝖍𝖔𝖗𝖆𝖇𝖚𝖊𝖓𝖆 ! M𝖏𝖊𝖆𝖓𝖓𝖎𝖓 𝖙𝖎𝖊𝖓𝖊 𝖚𝖓 A𝖕𝖔𝖉𝖔. 𝕷𝖔 𝖈𝖔𝖓𝖔𝖈𝖊𝖘 ? 𝕰𝖘 𝖒𝖎 𝖚𝖑T𝖎𝖒𝖆 𝖕𝖗𝖊𝖌𝖚𝖓TA</p>
+        <p>𝕰𝖓𝖍𝖔𝖗𝖆𝖇𝖚𝖊𝖓𝖆! M𝖏𝖊𝖆𝖓𝖓𝖎𝖓 𝖙𝖎𝖊𝖓𝖊 𝖚𝖑T𝖎𝖒𝖆 𝖕𝖗𝖊𝖌𝖚𝖓TA</p>
         <input type="text" id="answer3" />
         <button onclick="showSection4()">Next</button>
         <p id="response3" class="hidden"></p>
     </div>
     <div id="section4" class="hidden">
-        <p>Ahora que tienes la edad con la fecha de nacimiento, como añadirias un año a este chaval en C ?</p>
+        <p>Ahora que tienes la edad con la fecha de nacimiento, como añadirías un año a este chaval en C?</p>
         <input type="text" id="answer4" />
         <button onclick="showResponse4()">Validate</button>
         <p id="response4" class="hidden"></p>
     </div>
     <div id="countdown">03:00</div>
+    <audio autoplay loop>
+        <source src="techno_wave.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 </body>
-<script>
-// Function to load the audio file
-function loadAudio() {
-  const audioElement = new Audio(
-    'https://www.videomaker.com/sites/videomaker.com/files/downloads/free-sound-effects/Free_ExplosionSharp_6048_97_1.wav'
-  );
-  audioElement.load();
-
-  audioElement.addEventListener('canplaythrough', function() {
-    console.log('Loaded audio');
-    // Assuming you have a way to store the loaded audio element globally or in another scope
-    globalAudioElement = audioElement;
-  });
-}
-
-// Function to play the audio after a delay
-async function playAudio() {
-  try {
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait for 2 seconds
-    if (globalAudioElement) {
-      globalAudioElement.play()
-       .then(() => console.log('Audio played successfully'))
-       .catch(error => console.error('Failed to play audio:', error));
-    }
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-}
-
-// Example usage:
-loadAudio(); // Load the audio initially
-setTimeout(playAudio, 3000); // Play the audio after 3 seconds
-
-
-</script>
     <script>
         function showSection2() {
             var answer1 = document.getElementById('answer1').value;
