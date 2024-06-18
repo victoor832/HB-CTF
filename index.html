@@ -153,6 +153,17 @@
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     }, false);
+
+        var audio = document.getElementById('myAudio');
+
+    // Configurar el atributo src con la ubicación de tu archivo de audio
+    audio.src = 'techno_wave.mp3';
+
+    // Ajustar el volumen al 50%
+    audio.volume = 0.5;
+
+    // Iniciar la reproducción
+    audio.play();
 </script>
 
 <script>
