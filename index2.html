@@ -148,7 +148,7 @@ function showResponse4() {
 
         if (totalSeconds <= 0) {
             clearInterval(countdownInterval);
-            location.reload();
+            window.location.href = 'index.html'; // Cambia la URL directamente
         }
     }, 1000);
 </script>
