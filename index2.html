@@ -61,10 +61,13 @@
         <p id="response4" class="hidden"></p>
     </div>
     <div id="countdown">03:00</div>
-    <audio autoplay loop>
-        <source src="techno_wave.mp3" type="audio/mp3">
+<!--    <audio autoplay loop>
+     <source src="techno_wave.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
-    </audio>
+    </audio>  -->
+
+    <audio id="audioPlayer" src="techno_wave.mp3" loop></audio>
+
 </body>
     <script>
 function showSection2() {
@@ -152,10 +155,26 @@ function showResponse4() {
         }
     }, 1000);
 
+ //   document.addEventListener('DOMContentLoaded', function() {
+  //  var audio = new Audio('techno_wave.mp3');
+  //  audio.play();
+//});
+
+window.addEventListener('message', function(event) {
+        if (event.data === 'playAudio') {
+            var audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.play();
+        }
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
-    var audio = new Audio('techno_wave.mp3');
-    audio.play();
-});
+        // Asegúrate de que el elemento de audio esté disponible antes de intentar reproducirlo
+        var audioPlayer = document.getElementById('audioPlayer');
+        if (audioPlayer) {
+            // Configura el estado inicial del audio (por ejemplo, pausado)
+            audioPlayer.pause();
+        }
+    });
 
 </script>
 </html>

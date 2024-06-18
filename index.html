@@ -86,4 +86,21 @@
         </a>
     </div>
 </body>
+<script>
+        // Escucha el evento 'message' para recibir comandos de reproducir el audio
+        window.addEventListener('message', function(event) {
+        if (event.data === 'playAudio') {
+            // Envía un mensaje a index2.html para reproducir el audio
+            window.parent.postMessage('playAudio', '*');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var playButton = document.getElementById('loadMore');
+        playButton.addEventListener('click', function() {
+            // Enviar un mensaje a index2.html para reproducir el audio
+            window.parent.postMessage('playAudio', '*');
+        });
+    });
+</script>
 </html>
