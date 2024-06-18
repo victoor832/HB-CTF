@@ -54,8 +54,8 @@
     </style>
 </head>
 <body>
-    <audio id="background-music" src="./techno_wave.mp3" type="audio/mpeg" autoplay loop>
-    Your browser does not support the audio element.
+    <audio id="music" src="./techno_wave.mp3" type="audio/mpeg" preload="auto">
+        Your browser does not support the audio element.
     </audio>
     <div id="section1">
         <p>Cuantos integrantes hay en la liga de ciber ?  </p>
@@ -83,7 +83,23 @@
     </div>
     <div id="countdown">03:00</div>
 </body>
+<script>
+            window.onload = function() {
+            playBackgroundMusic();
+        };
 
+        function playBackgroundMusic() {
+            const audio = document.getElementById('music');
+            
+            // Intentar reproducir el audio
+            audio.play().then(() => {
+                console.log('Reproducción iniciada correctamente.');
+            }).catch((error) => {
+                console.error('Error al iniciar la reproducción:', error);
+                // Aquí puedes agregar lógica adicional para manejar el error, como mostrar un mensaje al usuario
+            });
+        }
+</script>
     <script>
         function showSection2() {
             var answer1 = document.getElementById('answer1').value;
@@ -153,18 +169,6 @@
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
     }, false);
-
-    function playBackgroundMusic() {
-        const audio = document.getElementById('background-music');
-        
-        // Intentar reproducir el audio
-        audio.play().then(() => {
-            console.log('Reproducción iniciada correctamente.');
-        }).catch((error) => {
-            console.error('Error al iniciar la reproducción:', error);
-            // Aquí puedes agregar lógica adicional para manejar el error, como mostrar un mensaje al usuario
-        });
-    }
 </script>
 
 <script>
