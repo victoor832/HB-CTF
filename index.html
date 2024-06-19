@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <title>Happy Birthday</title>
+    <style>
+        body, html {
+            background-image: url('cake.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #welcomeScreen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 1);
+            z-index: 2;
+        }
+
+        #playButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        audio {
+            display: none;
+        }
+
+       .hidden {
+            display: none;
+        }
+        div {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcomeScreen">
+        <button id="playButton">Que empiece el juego</button>
+    </div>
+    <audio id="audioPlayer" src="techno_wave.mp3" loop></audio>
+    <div id="section1" class="hidden">
+        <p>¿Cuántos integrantes hay en la liga de ciber?</p>
+        <input type="text" id="answer1" />
+        <button onclick="showSection2()">Next</button>
+        <p id="response1" class="hidden"></p>
+    </div>
+    <div id="section2" class="hidden">
+        <p>Q29tbyBzZSBsbGFtYSBlbCBwcmltZXIgY3RmIHF1ZSBoaWNpZXJvbg==</p>
+        <input type="text" id="answer2" />
+        <button onclick="showSection3()">Next</button>
+        <p id="response2" class="hidden"></p>
+    </div>
+    <div id="section3" class="hidden">
+        <p>𝕰𝖓𝖍𝖔𝖗𝖆𝖇𝖚𝖊𝖓𝖆 M𝖏𝖊𝖆𝖓𝖓𝖎𝖓 𝖙𝖎𝖊𝖓𝖊 𝖚𝖓 A𝖕𝖔𝖉𝖔. 𝕷𝖔 𝖈𝖔𝖓𝖔𝖈𝖊𝖘 ? 𝕰𝖘 𝖒𝖎 𝖚𝖑T𝖎𝖒𝖆 𝖕𝖗𝖊𝖌𝖚𝖓TA</p>
+        <input type="text" id="answer3" />
+        <button onclick="showSection4()">Next</button>
+        <p id="response3" class="hidden"></p>
+    </div>
+    <div id="section4" class="hidden">
+        <p>Ahora que tienes la edad con la fecha de nacimiento, ¿Cómo añadirías un año a este chaval en 'C' ?</p>
+        <input type="text" id="answer4" />
+        <button onclick="showResponse4()">Validate</button>
+        <p id="response4" class="hidden"></p>
+    </div>
+    <div id="countdown">03:00</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audioPlayer = document.getElementById('audioPlayer');
+            var playButton = document.getElementById('playButton');
+            var welcomeScreen = document.getElementById('welcomeScreen');
+
+            playButton.addEventListener('click', function() {
+                audioPlayer.play();
+                welcomeScreen.style.display = 'none';
+                document.getElementById('section1').classList.remove('hidden');
+            });
+        });
+    </script>
+    <script>
+            function showSection2() {
+                var answer1 = document.getElementById('answer1').value;
+                if(answer1 === '265') {
+                    document.getElementById('section2').classList.remove('hidden');
+                    document.getElementById('response1').textContent = '19';
+                    document.getElementById('response1').classList.remove('hidden');
+                } else {
+                    alert("El canal de la liga puede tener la solución...");
+                }
+            }
+
+            function showSection3() {
+                var answer2 = document.getElementById('answer2').value.toLowerCase();
+                if(answer2 === 'hades') {
+                    document.getElementById('section3').classList.remove('hidden');
+                    document.getElementById('response2').textContent = '06';
+                    document.getElementById('response2').classList.remove('hidden');
+                } else {
+                    alert("¿Reconoces este tipo de codificación?");
+                }
+            }
+
+            function showSection4() {
+                var answer3 = document.getElementById('answer3').value.toLowerCase();
+                if(answer3 === 'matta') {
+                    document.getElementById('section4').classList.remove('hidden');
+                    document.getElementById('response3').textContent = '1995';
+                    document.getElementById('response3').classList.remove('hidden');
+                } else {
+                    alert("MIRA LAS LETRAS DIFERENTES");
+                }
+            }
+
+            function showResponse4() {
+                var answer4 = document.getElementById('answer4').value;
+                if(answer4 === '28++;') {
+                    document.getElementById('response4').textContent = 'Okaaaaay lets goooo (Puedes comer)';
+                    document.getElementById('response4').classList.remove('hidden');
+                } else {
+                    alert("El número es mayor que 25 y menos que 100");
+                }
+            }
+    </script>
+    <script>
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+        };
+    
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        }, false);
+    </script>
+    
+    <script>
+        var countdownElement = document.getElementById('countdown');
+        var totalSeconds = 180; // 3 minutes
+    
+        var countdownInterval = setInterval(function() {
+            totalSeconds--;
+            var minutes = Math.floor(totalSeconds / 60);
+            var seconds = totalSeconds % 60;
+    
+            countdownElement.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    
+            if (totalSeconds <= 0) {
+                clearInterval(countdownInterval);
+                location.reload();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
