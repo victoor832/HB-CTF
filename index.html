@@ -98,6 +98,8 @@
         <p id="response4" class="hidden"><img src="palmera2.webp"></p>
     </div>
     <div id="countdown">02:00</div>
+    <img id="dynamicImage" style="display:none;" />
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -149,11 +151,16 @@
             function showResponse4() {
                 var answer4 = document.getElementById('answer4').value;
                 if(answer4 === '28++;') {
-                    //document.getElementById('response4').textContent = 'Okaaaaay lets goooo (Puedes comer)';
+                    var dynamicImage = document.getElementById('dynamicImage');
+                if(dynamicImage) {
+                    dynamicImage.src = 'palmera2.webp';
+                    dynamicImage.style.display = 'block';
+                    document.getElementById('response4').textContent = 'Okaaaaay lets goooo (Puedes comer)';
                     document.getElementById('response4').classList.remove('hidden');
                 } else {
                     alert("El número es mayor que 25 y menos que 100");
                 }
+            }
             }
     </script>
     <script>
